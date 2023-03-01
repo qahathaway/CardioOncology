@@ -1,4 +1,4 @@
 # CardioOncology
 
 
-![alt text](https://github.com/qahathaway/Cardiac_Remodeling_Radiomics/blob/main/Central_Illustration.jpg)
+![alt text](https://github.com/qahathaway/CardioOncology/blob/main/Figure_1.pdf)
