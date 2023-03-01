@@ -5,12 +5,12 @@ library(survival)
 library(survminer)
 
 ##Load Dataset##
-MESA <- data.frame(read.csv(
+CardioOnc <- data.frame(read.csv(
   file = '/path/to/csv'))
 
 ##Impute Median Values##
 library(mlr)
-imputed = impute(MESA, target = character(0), classes = list(numeric = imputeMedian(), integer = imputeMedian()))
+imputed = impute(CardioOnc, target = character(0), classes = list(numeric = imputeMedian(), integer = imputeMedian()))
 final <- as.data.frame(imputed$data)
 
 ##Univariate##
@@ -45,39 +45,7 @@ print(res1[order(res1$p.value, decreasing = FALSE), ]   )
 
 write.csv(res1[order(res1$p.value, decreasing = FALSE), ], file = "/Users/quincy/Documents/Research/Brijesh - CardioOnc/020923/Univariate_HF.csv")
 
-##Multivariate##
-library(survcomp)
-
-cOmicsMort <- concordance.index(x=final$Ultraosmics-Features-Here, method="noether",
-                              surv.time=final$Mortality_Duration, surv.event=final$Mortality)
-
-cOmicsHF <- concordance.index(x=final$Ultraosmics-Features-Here, method="noether",
-                                  surv.time=final$HF_Duration, surv.event=final$HF)
-
-cDemMort <- concordance.index(x=final$Demographics-Features-Here,
-                            method="noether", surv.time=final$Mortality_Duration, surv.event=final$Mortality)
-
-cDemHF <- concordance.index(x=final$Demographics-Features-Here,
-                                method="noether", surv.time=final$HF_Duration, surv.event=final$HF)
-
-cFuncMort <- concordance.index(x=final$Functional-Features-Here, method="noether",
-                             surv.time=final$Mortality_Duration, surv.event=final$Mortality)
-
-cFuncHF <- concordance.index(x=final$Functional-Features-Here, surv.event=final$HF)
-
-cDrugMort <- concordance.index(x=final$Therapy-Features-Here, method="noether",
-                             surv.time=final$Mortality_Duration, surv.event=final$Mortality)
-
-cDrugHF <- concordance.index(x=final$Therapy-Features-Here, method="noether",
-                             surv.time=final$HF_Duration, surv.event=final$HF)
-
-cindex.comp(cDrugMort, cDemMort)
-
-summary(cDrugMort)
-concordance(cDrugMort)
-anova(cDrugMort, cDemMort)
-
-
+                        
 ##Plot the baseline survival function##
 fit <- surv_fit(Surv(HF_Duration, HF) ~Prob_Omics,
                 data = final)
