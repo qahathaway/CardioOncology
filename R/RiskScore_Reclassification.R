@@ -5,11 +5,11 @@ library(prodlim)
 library(riskRegression)
 
 ##Load Dataset##
-MESA <- data.frame(read.csv(file = '/path/to/csv'))
+CardioOnc <- data.frame(read.csv(file = '/path/to/csv'))
 
 ##Impute Median Values##
 library(mlr)
-imputed = impute(MESA, target = character(0), classes = list(numeric = imputeMedian(), integer = imputeMedian()))
+imputed = impute(CardioOnc, target = character(0), classes = list(numeric = imputeMedian(), integer = imputeMedian()))
 final <- as.data.frame(imputed$data)
 
 # detach mlr package because of 'plotCalibration' conflict
