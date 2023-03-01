@@ -15,3 +15,6 @@ Examining all features, mortality (n=40) and HF (n=18) revealed a significant as
 With further investigation, a clinical decision support tool could be developed utilizing routinely obtained patient data alongside ultrasomics variables to augment treatment regimens.
 
 ![alt text](https://github.com/qahathaway/CardioOncology/blob/main/Figure_1.jpg)
+
+## Figure 1:
+Study overview. (A) 134 patients met the inclusion criteria. Echocardiography was performed prior to antineoplastic therapy initiation. Following therapy, the two primary outcomes were measured: all-cause mortality and heart failure. (B) Echocardiographic images were selected in the end-diastolic and end-systolic phase for each patient. Using LifeX software, the interventricular septum and posterior wall were manually traced. This resulted in four unique segments for each patient: IVS-ED, IVS-ES, PW-ED, and PW-ES. Radiomics features were extracted using LifeX software, resulting in the collection of first and second order features and textural-based features. NGLDM = Neighboring Gray-Level Dependence Matrix, GLCM = Gray-Level Co-ccurrence Matrix, GLZLM = Gray-Level Zone Length Matrix, GLRLM = Gray-Level Run Length Matrix.
